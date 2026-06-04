@@ -58,7 +58,14 @@ img{max-width:100%;display:block}
   font-family:var(--font-body);font-weight:700;font-size:.72rem;letter-spacing:.18em;
   text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:9px;
 }
-.eyebrow::before{content:"";width:26px;height:2px;background:var(--gold);display:inline-block}
+.eyebrow::before,
+.eyebrow::after {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: var(--gold);
+  display: inline-block;
+}
 .btn{
   display:inline-flex;align-items:center;gap:9px;font-family:var(--font-body);font-weight:700;
   font-size:.92rem;padding:13px 26px;border-radius:40px;cursor:pointer;border:none;
