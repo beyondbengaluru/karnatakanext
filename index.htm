@@ -132,6 +132,20 @@ nav.mainnav a.active::after{content:"";position:absolute;left:14px;right:14px;bo
   display: block;
 }
 
+/* ============ LEADERSHIP QUOTES ============ */
+.quotes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 30px; }
+.quote-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between; transition: .3s; }
+.quote-card:hover { box-shadow: var(--shadow); border-color: var(--blue); transform: translateY(-4px); }
+.quote-text { font-size: 1.05rem; color: var(--ink); font-style: italic; line-height: 1.6; margin-bottom: 30px; position: relative; }
+.quote-text::before { content: "“"; font-family: var(--font-head); font-size: 5rem; color: var(--gold-soft); position: absolute; top: -30px; left: -15px; z-index: 0; line-height: 1; }
+.quote-text p { position: relative; z-index: 1; }
+.quote-author { display: flex; align-items: center; gap: 16px; border-top: 1px solid var(--line); padding-top: 20px; }
+.quote-author img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--line); background: var(--bg); }
+.quote-author-info .name { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--navy); }
+.quote-author-info .title { font-size: .75rem; color: var(--slate); line-height: 1.4; margin-top: 2px; }
+
+
+
 /* ============ PAGE SECTIONS ============ */
 .page{display:none}
 .page.active{display:block;animation:fade .5s ease}
@@ -184,6 +198,28 @@ section.block{padding:84px 0}
 .pillar h3{font-size:1.18rem;margin-bottom:10px;color:var(--navy)}
 .pillar p{font-size:.92rem;color:var(--slate)}
 .pillar .metric{margin-top:16px;font-family:var(--font-head);font-size:1.5rem;color:var(--blue);font-weight:600}
+
+/* ============ POLICY DASHBOARD ============ */
+.policy-dash { display: grid; grid-template-columns: 320px 1fr; gap: 30px; align-items: start; }
+.pol-sidebar { display: grid; gap: 12px; }
+.pol-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 20px; cursor: pointer; transition: .25s; box-shadow: var(--shadow-sm); }
+.pol-card:hover { border-color: var(--blue); transform: translateX(4px); }
+.pol-card.active { border-color: var(--blue); background: var(--gold-soft); border-left: 4px solid var(--blue); }
+.pol-card h4 { font-size: 1.05rem; margin-bottom: 4px; color: var(--navy); }
+.pol-card p { font-size: .82rem; color: var(--slate); }
+
+.pol-content { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow-sm); }
+.pol-content h3 { font-size: 1.8rem; margin-bottom: 12px; color: var(--navy); }
+.pol-content p.prev { font-size: .95rem; color: var(--ink); margin-bottom: 30px; max-width: 65ch; line-height: 1.6; }
+
+.pol-tabs { display: flex; gap: 16px; border-bottom: 2px solid var(--line); margin-bottom: 24px; flex-wrap: wrap; }
+.pol-tab { padding: 10px 4px; font-weight: 700; font-size: .88rem; color: var(--slate); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: .2s; }
+.pol-tab:hover { color: var(--navy); }
+.pol-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+.pol-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.pol-item { display: flex; gap: 12px; align-items: flex-start; font-size: .86rem; color: var(--ink); padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg); font-weight: 500; }
+.pol-item svg { width: 18px; height: 18px; color: var(--blue); flex-shrink: 0; margin-top: 2px; }
 
 /* ============ MAP SECTION ============ */
 .map-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start}
@@ -440,6 +476,7 @@ footer.site{background:var(--navy);color:#aebfda;padding:60px 0 0}
   .statsbar .grid{grid-template-columns:repeat(2,1fr)}
   .statsbar .stat:nth-child(2){border-right:none}
   .minister-quote{display:none}
+  .quotes-grid{grid-template-columns:1fr}
 }
 @media(max-width:760px){
   nav.mainnav{display:none;position:absolute;top:84px;left:0;right:0;background:#fff;flex-direction:column;padding:14px;box-shadow:var(--shadow);border-bottom:1px solid var(--line)}
@@ -458,25 +495,24 @@ footer.site{background:var(--navy);color:#aebfda;padding:60px 0 0}
 
 <header class="masthead">
   <div class="wrap">
-    <div class="logo-cluster">
-      <div class="logo-emblem">
-        <div class="emblem">ಕ</div>
-        <div class="logo-text">
-          <div class="l1">Karnataka Next</div>
-          <div class="11">Regional Horizons</div>
-        </div>
+<div class="logo-cluster">
+      <!-- 1: Beyond Bengaluru -->
+      <div class="logo-emblem logo-bb">
+        <img src="https://beyondbengaluru.com/wp-content/uploads/2023/01/Beyond-Bengaluru-Logo-scaled.png.webp" alt="Beyond Bengaluru Logo" style="height: 42px; width: auto; object-fit: contain;">
       </div>
       
       <div class="logo-div"></div>
       
-      <div class="logo-emblem logo-kdem">
-        <img src="https://karnatakadigital.in/wp-content/uploads/2023/01/KDEM-_-Logo.png" alt="KDEM Logo" style="height: 42px; width: auto; object-fit: contain;">
-      </div>
-      
-      <div class="logo-div"></div>
-      
+      <!-- 2: Dept of IT, BT & S&T -->
       <div class="logo-emblem logo-bt">
         <img src="https://www.pentadacademy.com/_next/image?url=%2Fassets%2FHome%2FJourney%2FGOK-1.png&w=1200&q=75" alt="Dept of IT, BT & S&T Logo" style="height: 42px; width: auto; object-fit: contain;">
+      </div>
+
+      <div class="logo-div"></div>
+      
+      <!-- 3: KDEM -->
+      <div class="logo-emblem logo-kdem">
+        <img src="https://karnatakadigital.in/wp-content/uploads/2023/01/KDEM-_-Logo.png" alt="KDEM Logo" style="height: 42px; width: auto; object-fit: contain;">
       </div>
     </div>
     
@@ -511,7 +547,7 @@ footer.site{background:var(--navy);color:#aebfda;padding:60px 0 0}
 
     <div style="display: flex; align-items: center; gap: 16px;">
       <div class="minister-photo">
-        <img src="https://eitbt.karnataka.gov.in/uploads/media_to_upload1728794544.png" alt="Shri Priyank Kharge" class="minister-img">
+        <img src="https://ksrdpru.ac.in/wp-content/uploads/2024/08/pro_chancellor.jpeg" alt="Shri Priyank Kharge" class="minister-img">
       </div>
       <div class="minister-info">
     
@@ -547,6 +583,8 @@ footer.site{background:var(--navy);color:#aebfda;padding:60px 0 0}
       </div>
     </div>
   </div>
+  
+  
 
   <div class="statsbar">
     <div class="wrap">
@@ -574,6 +612,22 @@ footer.site{background:var(--navy);color:#aebfda;padding:60px 0 0}
       </div>
     </div>
   </div>
+  
+    
+  <section class="block" style="border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow">State at a Glance</span>
+        <h2>Karnataka's digital economy in numbers</h2>
+      </div>
+      <div class="glance-grid">
+        <div class="glance-card"><div class="gn">$110B</div><div class="gl">IT exports (FY25)</div></div>
+        <div class="glance-card"><div class="gn">40%</div><div class="gl">of India's GCC talent</div></div>
+        <div class="glance-card"><div class="gn">#1</div><div class="gl">Indian state for innovation</div></div>
+        <div class="glance-card"><div class="gn">14,000+</div><div class="gl">Startups statewide</div></div>
+      </div>
+    </div>
+  </section>
 
   <section class="block">
     <div class="wrap">
@@ -640,21 +694,6 @@ footer.site{background:var(--navy);color:#aebfda;padding:60px 0 0}
       </div>
     </div>
   </section>
-  
-  <section class="block" style="border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
-    <div class="wrap">
-      <div class="sec-head center">
-        <span class="eyebrow">State at a Glance</span>
-        <h2>Karnataka's digital economy in numbers</h2>
-      </div>
-      <div class="glance-grid">
-        <div class="glance-card"><div class="gn">₹1,250 Cr</div><div class="gl">Vayu Assets Chamarajanagar Anchor</div></div>
-        <div class="glance-card"><div class="gn">₹600 Cr</div><div class="gl">Nidec Dharwad Expansion Hub</div></div>
-        <div class="glance-card"><div class="gn">₹800 Cr</div><div class="gl">Tecchren Batteries Mysuru Pipeline</div></div>
-        <div class="glance-card"><div class="gn">₹370 Cr</div><div class="gl">Samnan Chemicals Tumakuru Setup</div></div>
-      </div>
-    </div>
-  </section>
 
   <div class="marquee">
     <div class="marquee-track" id="marquee"></div>
@@ -670,6 +709,62 @@ footer.site{background:var(--navy);color:#aebfda;padding:60px 0 0}
       <div class="story-grid" id="homeStories"></div>
       <div style="text-align:center;margin-top:36px">
         <a class="btn btn-navy" data-page="resources">View all success stories →</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- LEADERSHIP VISION -->
+  <section class="block soft">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow">Leadership Vision</span>
+        <h2>Driving the Next Chapter of Growth</h2>
+      </div>
+      
+      <div class="quotes-grid">
+        
+        <!-- Quote 1 -->
+        <div class="quote-card">
+          <div class="quote-text">
+            <p>"The future of Karnataka is not concentrated in one city; it is distributed across many emerging growth centres. We are building a state where talent can thrive closer to home and industry can grow closer to opportunity."</p>
+          </div>
+          <div class="quote-author">
+            <img src="https://cm.karnataka.gov.in/uploads/dept_photo1780482610.jpg" alt="Shri D.K. Shivakumar">
+            <div class="quote-author-info">
+              <div class="name">Shri D.K. Shivakumar</div>
+              <div class="title">Hon'ble Chief Minister,<br>Government of Karnataka</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quote 2 -->
+        <div class="quote-card">
+          <div class="quote-text">
+            <p>"Innovation has no pin code. From Mysuru to Mangaluru, Hubballi-Dharwad to Kalaburagi, Karnataka is creating a network of technology and innovation clusters that will power the next decade of growth."</p>
+          </div>
+          <div class="quote-author">
+            <img src="https://eitbt.karnataka.gov.in/uploads/media_to_upload1728794544.png" alt="Shri Priyank Kharge">
+            <div class="quote-author-info">
+              <div class="name">Shri Priyank Kharge</div>
+              <div class="title">Hon'ble Minister for IT BT and RDPR,<br>Government of Karnataka</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quote 3 -->
+        <div class="quote-card">
+          <div class="quote-text">
+            <p>"The next wave of investment will be driven by readiness, talent and quality infrastructure. Our focus is to enable every emerging cluster in Karnataka to become investment-ready and future-ready."</p>
+          </div>
+          <div class="quote-author">
+            <img src="https://kride.in/wp-content/uploads/2024/01/Dr-Manjula-N-IAS.png" alt="Dr Manjula N. IAS">
+            <div class="quote-author-info">
+              <div class="name">Dr Manjula N. IAS</div>
+              <div class="title">Secretary to Government,<br>Department of El, IT, Bt and S&T,<br>Government of Karnataka</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -733,6 +828,17 @@ footer.site{background:var(--navy);color:#aebfda;padding:60px 0 0}
 
 <section class="page" id="page-toolkit">
   <section class="block">
+      <section class="block soft">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow">Incentive Intelligence</span>
+        <h2>Explore State Policies</h2>
+        <p>Discover tailored incentives, eligibility criteria, and required documentation for your sector under Karnataka's latest policy frameworks.</p>
+      </div>
+      <div class="policy-dash" id="policyDash">
+        </div>
+    </div>
+  </section>
     <div class="wrap">
       <div class="sec-head center">
         <span class="eyebrow">Investor Toolkit</span>
@@ -917,7 +1023,7 @@ footer.site{background:var(--navy);color:#aebfda;padding:60px 0 0}
       <div class="foot-brand">
         <div class="logo-emblem">
           <div class="emblem">ಕ</div>
-          <div class="logo-text"><div class="l1">Karnataka Next</div><div class="l2" style="color:#aebfda">Regional Horizons</div></div>
+          <div class="logo-text"><div class="l1">Karnataka Next</div><div class="l2" style="color:#aebfda">Beyond Bengaluru</div></div>
         </div>
         <p>An initiative of the Karnataka Digital Economy Mission &amp; the Department of IT, BT &amp; S&amp;T, Government of Karnataka.</p>
       </div>
@@ -1094,6 +1200,106 @@ const BRANDS = [
   "Deloitte", "ForwardAir", "JJ Keller", "OnyX Digital", "riskonnect", "x/y retail",
   "Aequs", "Robosoft", "Niveus Solutions", "Novigo Solutions"
 ];
+
+/* ============================ POLICY DASHBOARD ============================ */
+const POLICIES = [
+  {
+    id: "it",
+    title: "IT / ITeS Policy",
+    subtitle: "Best for IT expansion companies",
+    preview: "Karnataka IT Policy 2025-2030 supports IT / ITeS companies and GCCs through incentives, operational support, eligibility guidance, and structured application procedures administered by KITS.",
+    incentives: ["Advanced Innovation & R&D Incentive","IT/ITeS Parks Incentive","Internship Cost Reimbursement","Recruitment Assistance","Talent Relocation Reimbursement","EPF Reimbursement","Skilling Cost Reimbursement","Faculty Development Programme","Rental Assistance","Quality Certification Reimbursement","Intellectual Property Incentive","Power Tariff Concession","Electricity Duty Reimbursement","Property Tax Reimbursement","Telecom Infrastructure Support","Events & Conferences"],
+    eligibility: ["Karnataka registered operations","IT / ITeS business activity","Bengaluru & Beyond Bengaluru eligibility","Strong invoice & payment proof","Separate application per incentive","Actual expenditure reimbursement basis"],
+    documents: ["GST Certificate","Incorporation Certificate","Payroll Reports","CA Certified Statements","Expense Invoices","Lease Agreements","Patent Documents","PF/ESI Compliance Records"]
+  },
+  {
+    id: "gcc",
+    title: "GCC Policy",
+    subtitle: "Best for Global Capability Centers",
+    preview: "The Karnataka GCC Policy 2024-2029 aims to establish the state as the global nerve center for capability centers by offering substantial cost offsets for innovation, scaling, and job creation.",
+    incentives: ["Power Tariff Exemption","EPF Reimbursement","Innovation Grants","AI/ML Center Setup Subsidy","Stamp Duty Exemption","Land Conversion Fee Waiver","Customs Duty Exemption on imported hardware","Fast-track single window clearance"],
+    eligibility: ["Must be a registered GCC entity","Minimum 500 local employees","Focus on core R&D, IT, or Engineering","Compliance with labor laws","Operation out of designated tech zones/parks"],
+    documents: ["DPIIT Registration","Employee PF Statements","Export Declarations","R&D Expenditure Audits","Local Board Approvals"]
+  },
+  {
+    id: "startup",
+    title: "Startup Policy",
+    subtitle: "Best for early-stage and deeptech",
+    preview: "The Karnataka Startup Policy 2025 supports high-growth startups across software, hardware, and deeptech through seed funding, incubation support, and global market access.",
+    incentives: ["Seed Funding (ELEVATE)","Patent Registration Subsidy","Incubation Rent Subsidy","Marketing & Event Reimbursement","Cloud Credits Support","Women Founder Grants","Rural Startup Boost","Prototyping Grants"],
+    eligibility: ["DPIIT Recognized Startup","Registered in Karnataka","Under 10 years since incorporation","Annual turnover not exceeding ₹100 Cr","Innovative product or service"],
+    documents: ["DPIIT Certificate","Pitch Deck","Audited Financials","Founder KYC","Incubator Recommendation (if any)"]
+  },
+  {
+    id: "data",
+    title: "ESDM Policy",
+    subtitle: "Best for hyperscale & edge infrastructure",
+    preview: "The Karnataka ESDM Policy 2025-30 establishes a world-class environment for hosting infrastructure through substantial power subsidies, zoning benefits, and rapid approvals.",
+    incentives: ["Power Subsidy (₹1/unit)","Land Conversion Fee Waiver","Capital Subsidy up to 20%","Stamp Duty Exemption","Renewable Energy Surcharge Waiver","Building Rule Relaxations","Security & Surveillance Grants"],
+    eligibility: ["Minimum 2MW IT Load","Adherence to Green Building codes","Local entity registration","Minimum ₹50 Cr capital investment","Uptime Tier III or above certification equivalent"],
+    documents: ["Detailed Project Report (DPR)","Land/Lease Deeds","Power Requirement Sanction","Environmental Clearances","Green Energy Commitments"]
+  }
+];
+
+let currentPolicy = 'it';
+let currentPolTab = 'incentives';
+
+function initPolicies() {
+  renderPolicySidebar();
+}
+
+function renderPolicySidebar() {
+  const sidebarHtml = `<div class="pol-sidebar">` + POLICIES.map(p => `
+    <div class="pol-card ${p.id === currentPolicy ? 'active' : ''}" onclick="selectPolicy('${p.id}')">
+      <h4>${p.title}</h4>
+      <p>${p.subtitle}</p>
+    </div>
+  `).join('') + `</div><div class="pol-content" id="polContent"></div>`;
+  
+  document.getElementById('policyDash').innerHTML = sidebarHtml;
+  renderPolicyContent();
+}
+
+function selectPolicy(id) {
+  currentPolicy = id;
+  currentPolTab = 'incentives'; // Reset tab on policy change
+  renderPolicySidebar();
+}
+
+function selectPolTab(tab) {
+  currentPolTab = tab;
+  renderPolicyContent();
+}
+
+function renderPolicyContent() {
+  const p = POLICIES.find(x => x.id === currentPolicy);
+  if(!p) return;
+  
+  const tabs = [
+    { id: 'incentives', label: 'Key Incentives' },
+    { id: 'eligibility', label: 'Eligibility Check' },
+    { id: 'documents', label: 'Documents Needed' }
+  ];
+
+  const tabsHtml = `<div class="pol-tabs">` + tabs.map(t => `
+    <div class="pol-tab ${t.id === currentPolTab ? 'active' : ''}" onclick="selectPolTab('${t.id}')">${t.label}</div>
+  `).join('') + `</div>`;
+
+  const listData = p[currentPolTab] || [];
+  const listHtml = `<div class="pol-grid">` + listData.map(item => `
+    <div class="pol-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>${item}</span>
+    </div>
+  `).join('') + `</div>`;
+
+  document.getElementById('polContent').innerHTML = `
+    <h3>${p.title}</h3>
+    <p class="prev">${p.preview}</p>
+    ${tabsHtml}
+    ${listHtml}
+  `;
+}
 
 /* ============================ ROUTING ============================ */
 const pages = document.querySelectorAll('.page');
@@ -1462,6 +1668,7 @@ buildScorecards();
 buildStories();
 buildMedia();
 runCounters();
+initPolicies();
 
 // header shadow on scroll
 window.addEventListener('scroll',()=>{
